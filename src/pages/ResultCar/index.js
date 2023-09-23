@@ -27,8 +27,8 @@ const ResultCar = () => {
     const changeCarName = async () => {
         try {
             const formDataBody = new FormData();
-            formDataBody.append('name', 'Innova Kijang');
-            formDataBody.append('price', 800000);
+            formDataBody.append('name', 'Avanza');
+            formDataBody.append('price', 300000);
             formDataBody.append('image', image);
 
             await api.putCarById(carId, formDataBody);

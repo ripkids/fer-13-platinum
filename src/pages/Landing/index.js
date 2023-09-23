@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import api from '../../api';
@@ -7,6 +8,7 @@ import CardCar from '../../components/CardCar';
 
 const Landing = () => {
     const navigate = useNavigate();
+    const [cars, setCars] = useState(null);
 
     const login = async () => {
         try {
@@ -33,18 +35,31 @@ const Landing = () => {
         { name: 'Kijang Innova 5', price: 5000, description: 'Yang lain semakin ketinggalan' },
     ]
 
+    const dummyData2 = [
+        { name: 'Kijang Innova 6', price: 6000, description: 'Yang lain semakin ketinggalan' },
+        { name: 'Kijang Innova 7', price: 7000, description: 'Yang lain semakin ketinggalan' },
+        { name: 'Kijang Innova 8', price: 8000, description: 'Yang lain semakin ketinggalan' },
+        { name: 'Kijang Innova 9', price: 9000, description: 'Yang lain semakin ketinggalan' },
+        { name: 'Kijang Innova 10', price: 10000, description: 'Yang lain semakin ketinggalan' }
+    ]
+
+    const updateCars = () => {
+        /*
+        * [
+        * { name: 'Kijang 1' },
+        * { name: 'Kijang 2' },
+        * { name: 'Kijang 3' },
+        * { name: 'Kijang 4' },
+        * { name: 'Kijang 5' }, { name: 'Kijang 1' }, { name: 'Kijang 1' }, { name: 'Kijang 1' }, { name: 'Kijang 1' }, { name: 'Kijang 1' }]
+        * */
+        setCars([...dummyData, ...dummyData2]);
+    };
+
     return (
         <>
-            <span>LANDING</span>
-            <BannerCar
-                isButtonShown={true}
-                isDanger={true}
-                clickCount={500}
-                onButtonClick={() => navigate('/search-car')}
-            />
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-column">
                 {
-                    dummyData.map((item, index) => (
+                    cars && cars.map((item, index) => (
                         <CardCar
                             key={`item-${index + 1}`}
                             name={item.name}
@@ -54,6 +69,12 @@ const Landing = () => {
                         />
                     ))
                 }
+                <button
+                    className="btn btn-primary"
+                    onClick={() => updateCars()}
+                >
+                    Update Cars
+                </button>
             </div>
         </>
     )

@@ -4,6 +4,7 @@ import Base from '../pages/Base';
 import LandingPage from '../pages/Landing';
 import SearchCarPage from '../pages/SearchCar';
 import ResultCarPage from '../pages/ResultCar';
+import DetailCarPage from '../pages/DetailCar';
 
 const routes = [
     {
@@ -11,7 +12,7 @@ const routes = [
         element: <Navigate to="/landing" />
     },
     {
-        path: '/landing',
+        path: 'landing',
         element: <Base />,
         children: [
             {
@@ -21,7 +22,7 @@ const routes = [
         ]
     },
     {
-        path: '/search-car',
+        path: 'search-car',
         element: <Base />,
         children: [
             {
@@ -31,8 +32,12 @@ const routes = [
         ]
     },
     {
-        path: '/result-car',
+        path: 'result-car',
         element: <ResultCarPage />
+    },
+    {
+        path: 'detail-car',
+        element: <DetailCarPage />
     }
 ]
 

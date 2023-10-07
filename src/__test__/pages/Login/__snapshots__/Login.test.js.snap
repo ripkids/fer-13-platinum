@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Login component should match with snapshot 1`] = `
+<div
+  className="p-5 d-flex flex-column"
+>
+  <input
+    className="mb-5"
+    data-testid="email-input"
+    onChange={[Function]}
+    placeholder="Enter email"
+  />
+  <input
+    className="mb-5"
+    data-testid="password-input"
+    onChange={[Function]}
+    placeholder="Enter password"
+  />
+  <button
+    className="btn btn-success"
+    data-testid="login-button"
+    onClick={[Function]}
+  >
+    Login
+  </button>
+</div>
+`;
